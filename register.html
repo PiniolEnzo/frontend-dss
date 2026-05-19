@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear cuenta — Diagon Alley</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="auth-page">
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <h1>Crear cuenta</h1>
+        <p>Completá tus datos para registrarte</p>
+      </div>
+
+      <div id="auth-error" class="auth-error hidden"></div>
+
+      <form id="register-form" class="auth-form" novalidate>
+        <div class="form-group">
+          <label for="name" class="form-label">Nombre completo</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-input"
+            placeholder="Ej: Juan Pérez"
+            required
+            minlength="5"
+            maxlength="25"
+            autocomplete="name"
+          />
+          <span class="form-hint">Entre 5 y 25 caracteres, solo letras y espacios.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="tu@email.com"
+            required
+            maxlength="60"
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-input"
+            placeholder="••••••••••"
+            required
+            autocomplete="new-password"
+          />
+          <div class="password-requirements">
+            <div class="password-requirements-title">La contraseña debe tener:</div>
+            <div class="password-requirement" id="req-length">
+              <span class="password-requirement-icon">○</span> 10 a 25 caracteres
+            </div>
+            <div class="password-requirement" id="req-uppercase">
+              <span class="password-requirement-icon">○</span> Al menos una mayúscula
+            </div>
+            <div class="password-requirement" id="req-lowercase">
+              <span class="password-requirement-icon">○</span> Al menos una minúscula
+            </div>
+            <div class="password-requirement" id="req-digit">
+              <span class="password-requirement-icon">○</span> Al menos un número
+            </div>
+            <div class="password-requirement" id="req-special">
+              <span class="password-requirement-icon">○</span> Al menos un carácter especial
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            class="form-input"
+            placeholder="Repetí tu contraseña"
+            required
+            autocomplete="new-password"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="btn-submit">
+          Crear cuenta
+        </button>
+      </form>
+
+      <div class="auth-card-footer">
+        ¿Ya tenés cuenta? <a href="/login.html">Iniciar sesión</a>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="js/pages/register.js"></script>
+</body>
+</html>

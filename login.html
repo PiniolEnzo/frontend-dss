@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar sesión — Diagon Alley</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="auth-page">
+    <div class="auth-card">
+      <div class="auth-card-header">
+        <h1>Iniciar sesión</h1>
+        <p>Ingresá tu email y contraseña para continuar</p>
+      </div>
+
+      <div id="auth-error" class="auth-error hidden"></div>
+
+      <form id="login-form" class="auth-form" novalidate>
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-input"
+            placeholder="tu@email.com"
+            required
+            maxlength="60"
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-input"
+            placeholder="••••••••••"
+            required
+            autocomplete="current-password"
+          />
+        </div>
+
+        <div class="form-group" style="text-align: right;">
+          <a href="/forgot-password.html" class="text-sm">Olvidé mi contraseña</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="btn-submit">
+          Iniciar sesión
+        </button>
+      </form>
+
+      <div class="auth-card-footer">
+        ¿No tenés cuenta? <a href="/register.html">Crear cuenta</a>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="js/pages/login.js"></script>
+</body>
+</html>

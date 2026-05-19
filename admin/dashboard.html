@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — Diagon Alley Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+
+  <!-- Blocking inline guard: redirect if not admin (ADR-3 exception) -->
+  <script>
+    (function() {
+      try {
+        var auth = JSON.parse(localStorage.getItem('techlab_auth') || '{}');
+        if (auth.role !== 'ROLE_ADMIN') {
+          window.location.replace('/login.html');
+        }
+      } catch(e) {
+        window.location.replace('/login.html');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div class="admin-layout">
+    <div id="admin-sidebar"></div>
+
+    <main class="admin-main">
+      <div class="admin-header">
+        <h1>Dashboard</h1>
+      </div>
+
+      <div id="stats-grid" class="stats-grid">
+        <!-- Renderizado por JS -->
+      </div>
+
+      <div id="loading-dashboard" class="loading-container">
+        <div class="spinner spinner-lg"></div>
+        <span class="loading-text">Cargando estadísticas…</span>
+      </div>
+
+      <h2 style="font-size: var(--text-xl); margin-bottom: var(--space-4);">Accesos rápidos</h2>
+      <div id="quick-actions" class="quick-actions"></div>
+    </main>
+  </div>
+
+  <script type="module" src="../js/pages/admin/dashboard.js"></script>
+</body>
+</html>

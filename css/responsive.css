@@ -1,0 +1,190 @@
+/**
+ * Diagon Alley E-commerce — Responsive CSS
+ *
+ * Media queries para todos los breakpoints.
+ * Mobile-first: los estilos base son mobile, estos son overrides para
+ * pantallas más grandes.
+ *
+ * Breakpoints:
+ *   < 480px  → Mobile pequeño
+ *   480-768px → Mobile grande / Tablet chica
+ *   768-1024px → Tablet
+ *   > 1024px → Desktop
+ */
+
+/* ============================================================
+   SMALL MOBILE (< 480px)
+   ============================================================ */
+@media (max-width: 479px) {
+  /* Typography */
+  h1 { font-size: var(--text-2xl); }
+  h2 { font-size: var(--text-xl); }
+  h3 { font-size: var(--text-lg); }
+
+  /* Layout */
+  .container {
+    padding: 0 var(--space-4);
+  }
+
+  .page-content {
+    padding: var(--space-4) 0;
+  }
+
+  /* Grid */
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Forms */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Buttons */
+  .btn-lg {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--text-sm);
+  }
+
+  /* Modal */
+  .modal {
+    margin: var(--space-2);
+    max-height: 95vh;
+  }
+
+  .modal-body {
+    padding: var(--space-4);
+  }
+
+  /* Toast */
+  .toast-container {
+    left: var(--space-4);
+    right: var(--space-4);
+    max-width: none;
+  }
+}
+
+/* ============================================================
+   MOBILE / TABLET CHICA (480px - 767px)
+   ============================================================ */
+@media (min-width: 480px) and (max-width: 767px) {
+  /* Typography */
+  h1 { font-size: var(--text-3xl); }
+
+  /* Layout */
+  .container {
+    padding: 0 var(--space-5);
+  }
+
+  /* Grid */
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Forms */
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ============================================================
+   TABLET (768px - 1023px)
+   ============================================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Layout */
+  .container {
+    padding: 0 var(--space-6);
+  }
+
+  /* Grid */
+  .grid-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Navbar */
+  .navbar-links {
+    gap: var(--space-1);
+  }
+
+  .navbar-link {
+    font-size: var(--text-xs);
+    padding: var(--space-2);
+  }
+}
+
+/* ============================================================
+   DESKTOP (> 1024px) — los estilos base ya son desktop
+   ============================================================ */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--space-8);
+  }
+}
+
+/* ============================================================
+   NAVBAR MOBILE TOGGLE (aplica < 768px)
+   ============================================================ */
+@media (max-width: 767px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-surface);
+    flex-direction: column;
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .navbar-links.navbar-links-open {
+    display: flex;
+  }
+
+  .navbar-inner {
+    position: relative;
+  }
+
+  .navbar-link {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .navbar-links .btn {
+    width: 100%;
+    margin-top: var(--space-2);
+  }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  .navbar,
+  .admin-sidebar,
+  .footer,
+  .toast-container,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  .admin-main {
+    margin-left: 0 !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}

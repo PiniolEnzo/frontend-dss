@@ -1,0 +1,176 @@
+/**
+ * Diagon Alley E-commerce — Auth Pages Styles
+ *
+ * Login, Register, Forgot Password, Reset Password
+ * Layout: centered card con fondo limpio
+ */
+
+/* ============================================================
+   AUTH LAYOUT
+   ============================================================ */
+.auth-page {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: linear-gradient(135deg, var(--color-bg) 0%, #e0e7ff 100%);
+}
+
+.auth-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 420px;
+  padding: var(--space-8);
+}
+
+.auth-card-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.auth-card-header h1 {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.auth-card-header p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+
+.auth-card-footer {
+  text-align: center;
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.auth-card-footer a {
+  font-weight: 500;
+}
+
+/* ============================================================
+   AUTH FORM
+   ============================================================ */
+.auth-form .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.auth-form .btn {
+  margin-top: var(--space-4);
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+/* ============================================================
+   PASSWORD REQUIREMENTS
+   ============================================================ */
+.password-requirements {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  background-color: var(--color-surface-hover);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+}
+
+.password-requirements-title {
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.password-requirement {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  padding: 2px 0;
+}
+
+.password-requirement.met {
+  color: var(--color-success);
+}
+
+.password-requirement-icon {
+  font-size: 10px;
+}
+
+/* ============================================================
+   SUCCESS MESSAGE
+   ============================================================ */
+.auth-success {
+  text-align: center;
+  padding: var(--space-8) 0;
+}
+
+.auth-success-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+  color: var(--color-success);
+}
+
+.auth-success h2 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
+}
+
+.auth-success p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+/* ============================================================
+   ERROR MESSAGE (global, no field-specific)
+   ============================================================ */
+.auth-error {
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+  }
+
+  .auth-page {
+    padding: var(--space-4);
+    background: var(--color-bg);
+  }
+
+  .auth-card-header h1 {
+    font-size: var(--text-xl);
+  }
+}

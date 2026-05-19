@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categorías — Diagon Alley Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+
+  <!-- Blocking inline guard -->
+  <script>
+    (function() {
+      try {
+        var auth = JSON.parse(localStorage.getItem('techlab_auth') || '{}');
+        if (auth.role !== 'ROLE_ADMIN') window.location.replace('/login.html');
+      } catch(e) { window.location.replace('/login.html'); }
+    })();
+  </script>
+</head>
+<body>
+  <div class="admin-layout">
+    <div id="admin-sidebar"></div>
+
+    <main class="admin-main">
+      <div class="admin-header">
+        <h1>Categorías</h1>
+        <button class="btn btn-primary" id="btn-new-category">+ Nueva categoría</button>
+      </div>
+
+      <div id="loading-categories" class="loading-container">
+        <div class="spinner spinner-lg"></div>
+        <span class="loading-text">Cargando categorías…</span>
+      </div>
+
+      <div class="table-container" id="categories-table-container">
+        <!-- Renderizado por JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Category Modal -->
+  <div class="modal-overlay hidden" id="category-modal">
+    <div class="modal admin-modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title">Nueva categoría</h2>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+      <form id="category-form" class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="c-name">Nombre</label>
+          <input type="text" id="c-name" name="name" class="form-input" required minlength="3" maxlength="25" />
+          <span class="form-hint">Entre 3 y 25 caracteres, solo letras y espacios.</span>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="modal-cancel">Cancelar</button>
+        <button class="btn btn-primary" id="modal-save">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../js/pages/admin/categories.js"></script>
+</body>
+</html>
